@@ -1,0 +1,32 @@
+#summary How to use yarik-overlay
+
+== Layman ==
+Layman is a tool designed to help automate management of your local repository of overlays you want included into your Gentoo system. Most of its documentation can be found on its [http://layman.sourceforge.net/ website] or man page.
+
+If you don't have *layman* - install it:
+{{{
+emerge -av layman
+}}}
+
+== How to add overlay ==
+
+=== First way === 
+{{{
+layman -o http://yarik-overlay.googlecode.com/files/yarik-overlay.xml -f -a yarik-overlay
+}}}
+Overlay will added, but won't showed in `layman -L` list.
+
+=== Second way ===
+Edit your <b>/etc/layman/layman.cfg</b> and add new overlay list:
+{{{
+overlays  : http://www.gentoo.org/proj/en/overlays/layman-global.txt
+            http://yarik-overlay.googlecode.com/files/yarik-overlay.xml
+}}}
+Then you must add [yarik_overlay yarik-overlay] to sync list:
+{{{
+layman -L
+layman -a yarik-overlay
+}}}
+
+
+Now all packages from overlay available with `emerge`.

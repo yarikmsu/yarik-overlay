@@ -49,10 +49,7 @@ pkg_setup() {
 src_unpack() {
 	unpack ${MY_P}
 	cd "${S}"
-#	epatch "${FILESDIR}/${P}-gcc-4.3.patch"
-#	epatch "${FILESDIR}/${PN}-5.1a-external-wx.patch"
-#	epatch "${FILESDIR}/${PN}-5.1-64bit.patch"
-#	epatch "${FILESDIR}/${PN}-5.0-bool.patch"
+
 	epatch "${FILESDIR}/${PN}-6.1-64bit.patch"
 	epatch "${FILESDIR}/${PN}-6.1-bool.patch"
 	epatch "${FILESDIR}/${PN}-6.1-external-wx.patch"

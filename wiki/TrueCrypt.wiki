@@ -11,11 +11,11 @@ Now TrueCrypt is masked in the official tree due to legal problems.
 app-crypt/truecrypt
 }}}
 
-This page will show you the steps to install TrueCrypt from yarik-overlay. 
+This page will show you the steps to install TrueCrypt from [http://code.google.com/p/yarik-overlay yarik-overlay]. 
 
 == About TrueCrypt ==
 
-TrueCrypt is an open-source cross-platform software allowing you to manage encrypted disks. The main features are its creation of virtual encrypted disks and the encryption of entire partitions. There are two different security levels available: The hidden volume and the normal volume. See the official website for details.
+TrueCrypt is an open-source cross-platform software allowing you to manage encrypted disks. The main features are its creation of virtual encrypted disks and the encryption of entire partitions. There are two different security levels available: The hidden volume and the normal volume. See the [http://www.truecrypt.org official website] for details.
 
 == Install ==
 

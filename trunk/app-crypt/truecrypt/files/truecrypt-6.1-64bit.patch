@@ -1,0 +1,15 @@
+diff -urNp truecrypt-6.1-source.orig/Makefile truecrypt-6.1-source/Makefile
+--- truecrypt-6.1-source.orig/Makefile	2008-11-11 12:43:29.000000000 +0300
++++ truecrypt-6.1-source/Makefile	2008-11-11 13:34:37.000000000 +0300
+@@ -50,7 +50,11 @@ C_CXX_FLAGS += -I$(PKCS11_INC)
+ endif
+ 
+ C_CXX_FLAGS += -DBOOL=int -DFALSE=0 -DTRUE=1
++ifeq "$(origin USE64BIT)" "command line"
++C_CXX_FLAGS += -D__int8=char -D__int16=short -D__int32=int '-D__int64=long'  # Tested in PlatformTest
++else
+ C_CXX_FLAGS += -D__int8=char -D__int16=short -D__int32=int '-D__int64=long long'  # Tested in PlatformTest
++endif
+ 
+ export LFLAGS :=
+ export PKG_CONFIG_PATH ?= /usr/local/lib/pkgconfig

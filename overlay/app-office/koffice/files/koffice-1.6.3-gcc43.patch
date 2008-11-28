@@ -1,54 +1,53 @@
-diff -urNa koffice-1.6.3.orig/filters/kpresenter/powerpoint/libppt/pole.cpp koffice-1.6.3/filters/kpresenter/powerpoint/libppt/pole.cpp
---- koffice-1.6.3.orig/filters/kpresenter/powerpoint/libppt/pole.cpp	2007-05-31 01:38:58.000000000 +0400
-+++ koffice-1.6.3/filters/kpresenter/powerpoint/libppt/pole.cpp	2008-11-21 00:57:54.000000000 +0300
-@@ -26,6 +26,8 @@
-    THE POSSIBILITY OF SUCH DAMAGE.
- */
+diff -Naurp koffice-1.6.3-orig/filters/kpresenter/powerpoint/libppt/pole.cpp koffice-1.6.3/filters/kpresenter/powerpoint/libppt/pole.cpp
+--- koffice-1.6.3-orig/filters/kpresenter/powerpoint/libppt/pole.cpp	2007-05-30 15:38:58.000000000 -0600
++++ koffice-1.6.3/filters/kpresenter/powerpoint/libppt/pole.cpp	2008-11-22 16:45:05.000000000 -0600
+@@ -32,6 +32,8 @@
+ #include <string>
+ #include <vector>
  
 +#include <string.h>
 +
- #include <fstream>
- #include <iostream>
- #include <list>
-diff -urNa koffice-1.6.3.orig/filters/kword/wordperfect/import/TableStyle.cxx koffice-1.6.3/filters/kword/wordperfect/import/TableStyle.cxx
---- koffice-1.6.3.orig/filters/kword/wordperfect/import/TableStyle.cxx	2007-05-31 01:39:02.000000000 +0400
-+++ koffice-1.6.3/filters/kword/wordperfect/import/TableStyle.cxx	2008-11-21 00:57:54.000000000 +0300
-@@ -27,6 +27,7 @@
- /* "This product is not manufactured, approved, or supported by 
-  * Corel Corporation or Corel Corporation Limited."
-  */
-+#include <string.h>
- #include <math.h>
- #include "FilterInternal.hxx"
- #include "TableStyle.hxx"
-diff -urNa koffice-1.6.3.orig/filters/kword/wordperfect/import/TextRunStyle.cxx koffice-1.6.3/filters/kword/wordperfect/import/TextRunStyle.cxx
---- koffice-1.6.3.orig/filters/kword/wordperfect/import/TextRunStyle.cxx	2007-05-31 01:39:02.000000000 +0400
-+++ koffice-1.6.3/filters/kword/wordperfect/import/TextRunStyle.cxx	2008-11-21 00:57:54.000000000 +0300
-@@ -28,6 +28,9 @@
- /* "This product is not manufactured, approved, or supported by
-  * Corel Corporation or Corel Corporation Limited."
-  */
+ #include "pole.h"
+ 
+ // enable to activate debugging output
+diff -Naurp koffice-1.6.3-orig/filters/kword/wordperfect/import/TableStyle.cxx koffice-1.6.3/filters/kword/wordperfect/import/TableStyle.cxx
+--- koffice-1.6.3-orig/filters/kword/wordperfect/import/TableStyle.cxx	2007-05-30 15:39:02.000000000 -0600
++++ koffice-1.6.3/filters/kword/wordperfect/import/TableStyle.cxx	2008-11-22 16:47:47.000000000 -0600
+@@ -36,6 +36,8 @@
+ #include <minmax.h>
+ #endif
+ 
++#include <cstring>
 +
-+#include <string.h>
+ TableCellStyle::TableCellStyle(const WPXPropertyList &xPropList, const char *psName) :
+ 	Style(psName),
+         mPropList(xPropList)
+diff -Naurp koffice-1.6.3-orig/filters/kword/wordperfect/import/TextRunStyle.cxx koffice-1.6.3/filters/kword/wordperfect/import/TextRunStyle.cxx
+--- koffice-1.6.3-orig/filters/kword/wordperfect/import/TextRunStyle.cxx	2007-05-30 15:39:02.000000000 -0600
++++ koffice-1.6.3/filters/kword/wordperfect/import/TextRunStyle.cxx	2008-11-22 16:48:30.000000000 -0600
+@@ -37,6 +37,8 @@
+ #include <minmax.h>
+ #endif
+ 
++#include <cstring>
 +
- #include "FilterInternal.hxx"
- #include "TextRunStyle.hxx"
- #include "WriterProperties.hxx"
-diff -urNa koffice-1.6.3.orig/kexi/kexidb/drivers/pqxx/pqxxcursor.cpp koffice-1.6.3/kexi/kexidb/drivers/pqxx/pqxxcursor.cpp
---- koffice-1.6.3.orig/kexi/kexidb/drivers/pqxx/pqxxcursor.cpp	2007-05-31 01:35:49.000000000 +0400
-+++ koffice-1.6.3/kexi/kexidb/drivers/pqxx/pqxxcursor.cpp	2008-11-21 00:57:54.000000000 +0300
-@@ -27,6 +27,8 @@
+ ParagraphStyle::ParagraphStyle(WPXPropertyList *pPropList, const WPXPropertyListVector &xTabStops, const WPXString &sName) :
+ 	mpPropList(pPropList),
+ 	mxTabStops(xTabStops),
+diff -Naurp koffice-1.6.3-orig/kexi/kexidb/drivers/pqxx/pqxxcursor.cpp koffice-1.6.3/kexi/kexidb/drivers/pqxx/pqxxcursor.cpp
+--- koffice-1.6.3-orig/kexi/kexidb/drivers/pqxx/pqxxcursor.cpp	2007-05-30 15:35:49.000000000 -0600
++++ koffice-1.6.3/kexi/kexidb/drivers/pqxx/pqxxcursor.cpp	2008-11-22 16:50:24.000000000 -0600
+@@ -26,6 +26,7 @@
+ 
  #include <klocale.h>
  #include <kdebug.h>
- 
 +#include <stdlib.h>
-+
+ 
  using namespace KexiDB;
  
- 
-diff -urNa koffice-1.6.3.orig/krita/core/kis_perspective_math.cpp koffice-1.6.3/krita/core/kis_perspective_math.cpp
---- koffice-1.6.3.orig/krita/core/kis_perspective_math.cpp	2007-05-31 01:40:31.000000000 +0400
-+++ koffice-1.6.3/krita/core/kis_perspective_math.cpp	2008-11-21 00:57:54.000000000 +0300
+diff -Naurp koffice-1.6.3-orig/krita/core/kis_perspective_math.cpp koffice-1.6.3/krita/core/kis_perspective_math.cpp
+--- koffice-1.6.3-orig/krita/core/kis_perspective_math.cpp	2007-05-30 15:40:31.000000000 -0600
++++ koffice-1.6.3/krita/core/kis_perspective_math.cpp	2008-11-22 16:52:47.000000000 -0600
 @@ -24,7 +24,7 @@
  
  #if 1
@@ -58,7 +57,7 @@ diff -urNa koffice-1.6.3.orig/krita/core/kis_perspective_math.cpp koffice-1.6.3/
  #include <stdlib.h>
  #include <math.h>
  //#define NDEBUG // uncomment to remove checking of assert()
-@@ -57,9 +57,9 @@
+@@ -57,9 +57,9 @@ template <class ElType>
          void  rprint()const;  //print entries on a single line
          void resize(int n);
          int operator==(const vector<ElType>& v)const;
@@ -71,7 +70,7 @@ diff -urNa koffice-1.6.3.orig/krita/core/kis_perspective_math.cpp koffice-1.6.3/
  };
  template <class ElType>
          void vector<ElType>::zero()
-@@ -129,10 +129,10 @@
+@@ -129,10 +129,10 @@ template <class ElType>
          void  vector<ElType>::rprint()const  //print entries on a single line
  {
      int i;
@@ -86,7 +85,7 @@ diff -urNa koffice-1.6.3.orig/krita/core/kis_perspective_math.cpp koffice-1.6.3/
      return;
  }
  template <class ElType>
-@@ -164,7 +164,7 @@
+@@ -164,7 +164,7 @@ template <class ElType>
      return ans;
  }
  template <class ElType>
@@ -95,7 +94,7 @@ diff -urNa koffice-1.6.3.orig/krita/core/kis_perspective_math.cpp koffice-1.6.3/
  {
      s << "(";
      for(int i=0;i<v.len-1;i++) s << v.data[i] << ", ";
-@@ -192,7 +192,7 @@
+@@ -192,7 +192,7 @@ template <class ElType>
          matrix<ElType> operator-(const matrix<ElType>& a);
          matrix<ElType> transpose();
      //matrix<ElType> inverse();
@@ -104,7 +103,7 @@ diff -urNa koffice-1.6.3.orig/krita/core/kis_perspective_math.cpp koffice-1.6.3/
          friend void ludcmp(matrix<ElType>& a,vector<int>& indx,double &d);
          friend void lubksb(matrix<ElType>&a,vector<int>& indx,vector<ElType>&b);
  };
-@@ -357,7 +357,7 @@
+@@ -357,7 +357,7 @@ template <class ElType>
      return ans;
  }
  template <class ElType>
@@ -113,7 +112,7 @@ diff -urNa koffice-1.6.3.orig/krita/core/kis_perspective_math.cpp koffice-1.6.3/
  {
      for(int i=0; i<m.rows;i++) s << m[i];
      return s;
-@@ -381,7 +381,7 @@
+@@ -381,7 +381,7 @@ void ludcmp(matrix<ElType>& a, vector<in
  //         kdDebug() << "new search" << endl;
          for (j=0;j<n;j++) { if ((temp=fabs(a[i][j])) > big) big=temp;
  /*            kdDebug() << temp << " " << fabs(a[i][j]) << " "<< big <<endl; */}
@@ -122,10 +121,10 @@ diff -urNa koffice-1.6.3.orig/krita/core/kis_perspective_math.cpp koffice-1.6.3/
              vv[i]=1.0/big;
      }
      for (j=0;j<n;j++)
-diff -urNa koffice-1.6.3.orig/kspread/plugins/scripting/kspreadcore/krs_cell.cpp koffice-1.6.3/kspread/plugins/scripting/kspreadcore/krs_cell.cpp
---- koffice-1.6.3.orig/kspread/plugins/scripting/kspreadcore/krs_cell.cpp	2007-05-31 01:43:20.000000000 +0400
-+++ koffice-1.6.3/kspread/plugins/scripting/kspreadcore/krs_cell.cpp	2008-11-21 00:57:54.000000000 +0300
-@@ -174,12 +174,7 @@
+diff -Naurp koffice-1.6.3-orig/kspread/plugins/scripting/kspreadcore/krs_cell.cpp koffice-1.6.3/kspread/plugins/scripting/kspreadcore/krs_cell.cpp
+--- koffice-1.6.3-orig/kspread/plugins/scripting/kspreadcore/krs_cell.cpp	2007-05-30 15:43:20.000000000 -0600
++++ koffice-1.6.3/kspread/plugins/scripting/kspreadcore/krs_cell.cpp	2008-11-22 16:55:43.000000000 -0600
+@@ -174,12 +174,7 @@ const QString Cell::text() const {
  	return m_cell->text();
  }
  
@@ -139,7 +138,7 @@ diff -urNa koffice-1.6.3.orig/kspread/plugins/scripting/kspreadcore/krs_cell.cpp
  	KSpread::ProtectedCheck prot;
  	prot.setSheet (m_sheet);
  	prot.add (QPoint (m_col, m_row));
-@@ -189,7 +184,7 @@
+@@ -189,7 +184,7 @@ bool Cell::setText(const QString& text, 
  	KSpread::DataManipulator *dm = new KSpread::DataManipulator ();
  	dm->setSheet (m_sheet);
  	dm->setValue (text);
@@ -148,18 +147,18 @@ diff -urNa koffice-1.6.3.orig/kspread/plugins/scripting/kspreadcore/krs_cell.cpp
  	dm->add (QPoint (m_col, m_row));
  	dm->execute ();
  
-diff -urNa koffice-1.6.3.orig/kspread/plugins/scripting/kspreadcore/krs_cell.h koffice-1.6.3/kspread/plugins/scripting/kspreadcore/krs_cell.h
---- koffice-1.6.3.orig/kspread/plugins/scripting/kspreadcore/krs_cell.h	2007-05-31 01:43:20.000000000 +0400
-+++ koffice-1.6.3/kspread/plugins/scripting/kspreadcore/krs_cell.h	2008-11-21 00:57:54.000000000 +0300
-@@ -131,11 +131,10 @@
+diff -Naurp koffice-1.6.3-orig/kspread/plugins/scripting/kspreadcore/krs_cell.h koffice-1.6.3/kspread/plugins/scripting/kspreadcore/krs_cell.h
+--- koffice-1.6.3-orig/kspread/plugins/scripting/kspreadcore/krs_cell.h	2007-05-30 15:43:20.000000000 -0600
++++ koffice-1.6.3/kspread/plugins/scripting/kspreadcore/krs_cell.h	2008-11-22 16:56:56.000000000 -0600
+@@ -131,11 +131,10 @@ class Cell : public Kross::Api::Class<Ce
  		*/
  		const QString text() const;
  		/**
 -		* Set the text of the cell. If asString is true, the text
 -		* will be handled as string else we try to parse the
 -		* string to the expected value.
-+		* Set the text of the cell. the text
-+		* will be handled as string
++		 * Set the text of the cell. the text
++		 * will be handled as string
  		*/
 -		bool setText(const QString& text, bool asString = false);
 +		bool setText(const QString& text);

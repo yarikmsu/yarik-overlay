@@ -1,0 +1,35 @@
+diff -urNp audacious-plugins-1.4.5.orig/src/modplug/archive/arch_gzip.h audacious-plugins-1.4.5/src/modplug/archive/arch_gzip.h
+--- audacious-plugins-1.4.5.orig/src/modplug/archive/arch_gzip.h	2008-11-17 19:50:22.000000000 +0300
++++ audacious-plugins-1.4.5/src/modplug/archive/arch_gzip.h	2008-11-17 20:15:05.000000000 +0300
+@@ -8,7 +8,7 @@
+ #define __MODPLUG_ARCH_GZIP_H__INCLUDED__
+ 
+ #include "archive.h"
+-#include <string>
++#include <cstring>
+ 
+ class arch_Gzip: public Archive
+ {
+diff -urNp audacious-plugins-1.4.5.orig/src/modplug/archive/arch_rar.cxx audacious-plugins-1.4.5/src/modplug/archive/arch_rar.cxx
+--- audacious-plugins-1.4.5.orig/src/modplug/archive/arch_rar.cxx	2008-11-17 19:50:22.000000000 +0300
++++ audacious-plugins-1.4.5/src/modplug/archive/arch_rar.cxx	2008-11-17 20:18:32.000000000 +0300
+@@ -14,6 +14,7 @@
+ #include "arch_rar.h"
+ #include <iostream>
+ #include <vector>
++#include <cstdlib>
+ 	
+ arch_Rar::arch_Rar(const string& aFileName)
+ {
+diff -urNp audacious-plugins-1.4.5.orig/src/modplug/archive/arch_rar.h audacious-plugins-1.4.5/src/modplug/archive/arch_rar.h
+--- audacious-plugins-1.4.5.orig/src/modplug/archive/arch_rar.h	2008-11-17 19:50:22.000000000 +0300
++++ audacious-plugins-1.4.5/src/modplug/archive/arch_rar.h	2008-11-17 20:16:48.000000000 +0300
+@@ -8,7 +8,7 @@
+ #define __MODPLUG_ARCH_RAR_H__INCLUDED__
+ 
+ #include "archive.h"
+-#include <string>
++#include <cstring>
+ 
+ class arch_Rar: public Archive
+ {

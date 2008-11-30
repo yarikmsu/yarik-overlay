@@ -135,9 +135,9 @@ src_unpack() {
 		ewarn "Appending -fno-stack-protector to CFLAGS/CXXFLAGS"
 		append-flags -fno-stack-protector
 	fi
-	
+
 	append-flags -fno-strict-aliasing
-	
+
 	sed -i -e "s:QMAKE_CFLAGS_RELEASE.*=.*:QMAKE_CFLAGS_RELEASE=${CFLAGS}:" \
 		-e "s:QMAKE_CXXFLAGS_RELEASE.*=.*:QMAKE_CXXFLAGS_RELEASE=${CXXFLAGS}:" \
 		-e "s:QMAKE_LFLAGS_RELEASE.*=.*:QMAKE_LFLAGS_RELEASE=${LDFLAGS}:" \

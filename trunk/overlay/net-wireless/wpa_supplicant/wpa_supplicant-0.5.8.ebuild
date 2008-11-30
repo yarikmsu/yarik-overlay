@@ -47,7 +47,7 @@ src_unpack() {
 	cd "${S}"
 
 	epatch "${FILESDIR}/${PN}"-0.5.10-gcc-4.3.patch
-	
+
 	# net/bpf.h needed for net-libs/libpcap on Gentoo FreeBSD
 	sed -i \
 		-e "s:\(#include <pcap\.h>\):#include <net/bpf.h>\n\1:" \

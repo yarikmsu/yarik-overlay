@@ -8,8 +8,8 @@ DESCRIPTION="Free open-source disk encryption software"
 HOMEPAGE="http://www.truecrypt.org/"
 #SRC_URI="TrueCrypt ${PV} Source.tar.gz"
 SRC_URI="${P}.tar.gz
-	pkcs11.h 
-	pkcs11f.h 
+	pkcs11.h
+	pkcs11f.h
 	pkcs11t.h"
 
 LICENSE="truecrypt-collective-1.4"
@@ -31,7 +31,7 @@ pkg_nofetch() {
 	einfo "Then put the file in ${DISTDIR}/${MY_P}"
 	einfo "Please download RSA Security Inc. PKCS #11 Cryptographic Token Interface (Cryptoki) 2.20"
 	einfo "header files:"
-	einfo "ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11.h" 
+	einfo "ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11.h"
 	einfo "ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11f.h"
 	einfo "ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11t.h"
 	einfo "Then put files in ${DISTDIR}"
@@ -65,7 +65,7 @@ src_compile() {
 			elog "In this case compiling will failed if not -O0 optimization flag used."
 			elog "Therefore ${P} will compliling with -O0 flag."
 			elog "Otherwise you could install >=sys-libs/glibc-2.7 or use <sys-devel/gcc-4.3"
-			CFLAGS="${CFLAGS} -O0" 
+			CFLAGS="${CFLAGS} -O0"
 			CXXFLAGS="${CXXFLAGS} -O0"
 		fi
 	fi

@@ -58,9 +58,9 @@ mp3_warning() {
 }
 
 src_unpack() {
-        unpack ${A}
-        cd "${S}"
-        epatch "${FILESDIR}/${P}-gcc-4.3.patch"
+	unpack ${A}
+	cd "${S}"
+	epatch "${FILESDIR}/${P}-gcc-4.3.patch"
 }
 
 src_compile() {

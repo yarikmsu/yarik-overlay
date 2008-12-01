@@ -59,9 +59,7 @@ need-kde 3.45
 # the dependency on python is needed for scripting support in kexi
 # and for kivio/kiviopart/kiviosdk.
 
-PATCHES="${FILESDIR}/koffice-xpdf-CVE-2007-3387.diff
-		${FILESDIR}/koffice-1.6.3-xpdf2-CVE-2007-4352-5392-5393.diff
-		${FILESDIR}/${P}-gcc43.patch"
+PATCHES=( ${FILESDIR}/koffice-xpdf-CVE-2007-3387.diff ${FILESDIR}/koffice-1.6.3-xpdf2-CVE-2007-4352-5392-5393.diff ${FILESDIR}/${P}-gcc43.patch )
 
 pkg_setup() {
 	# use opengl &&

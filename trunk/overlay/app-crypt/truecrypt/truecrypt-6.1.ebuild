@@ -59,7 +59,7 @@ src_compile() {
 	local EXTRA
 	use amd64 && EXTRA="${EXTRA} USE64BIT=1"
 	use X || EXTRA="${EXTRA} NOGUI=1"
-	if has_version '<=sys-libs/glibc-2.7'; then
+	if has_version '<sys-libs/glibc-2.7'; then
 		if [ "$(gcc-version)" = "4.3" ]; then
 			elog "You are trying to compile ${P} using >=sys-devel/gcc-4.3 and <sys-libs/glibc-2.7"
 			elog "In this case compiling will failed if not -O0 optimization flag used."

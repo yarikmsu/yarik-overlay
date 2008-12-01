@@ -2,6 +2,9 @@
 # Copyright 1999-2008 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  01 Dec 2008; Yarik <ygorbunov@gmail.com> gquod-0.1.0.ebuild:
+  Updating ebuild to coding standart.
+
   01 Dec 2008; Yarik <ygorbunov@gmail.com> +gquod-0.1.0.ebuild,
   +metadata.xml:
   New ebuild for gquod.

@@ -24,7 +24,7 @@ TrueCrypt is an open-source cross-platform software allowing you to manage encry
  # Add `app-crypt/truecrypt` in <b>/etc/portage/package.keywords</b>
  # Run `emerge -av truecrypt` and follow instructions^1^:
  * Download tar.gz source from http://www.truecrypt.org/downloads2.php. 
- Then put the file in <b>/usr/portage/distfiles/truecrypt-6.1.tar.gz</b>
+ Then put the file in <b>/usr/portage/distfiles/truecrypt-6.1a.tar.gz</b>
  * Download RSA Security Inc. PKCS #11 Cryptographic Token Interface (Cryptoki) 2.20 in <b>/usr/portage/distfiles</b>:
 {{{
 cd /usr/portage/distfiles

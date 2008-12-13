@@ -34,6 +34,8 @@ wget ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11t.h
 }}}
  * Run `emerge -av truecrypt`
 
-More information about using TrueCrypt in gentoo available in [http://en.gentoo-wiki.com/wiki/TrueCrypt gentoo-wiki].
-
 1. Instructions might differ from below.
+
+== Usage ==
+
+More information about using TrueCrypt in gentoo available in [http://en.gentoo-wiki.com/wiki/TrueCrypt gentoo-wiki].

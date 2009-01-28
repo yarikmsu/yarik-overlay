@@ -28,5 +28,21 @@ layman -L
 layman -a yarik-overlay
 }}}
 
+== Configure layman ==
+
+Edit your <b>/etc/make.conf</b> and add:
+{{{
+source /usr/local/portage/layman/make.conf
+}}}
 
 Now all packages from overlay available with `emerge`.
+
+== More information about layman ==
+
+[http://layman.sourceforge.net/ Layman documentation]
+
+[http://en.gentoo-wiki.com/wiki/Overlays#Layman Overlays HOWTO]
+
+{{{
+man layman
+}}}

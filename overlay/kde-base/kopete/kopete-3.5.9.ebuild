@@ -1,4 +1,4 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/kde-base/kopete/kopete-3.5.9.ebuild,v 1.9 2008/09/03 11:58:02 opfer Exp $
 
@@ -79,7 +79,7 @@ src_unpack() {
 	epatch "${FILESDIR}/kdenetwork-3.5.5-linux-headers-2.6.18.patch"
 	epatch "${FILESDIR}/${P}-icq-protocol-change.patch"
 	epatch "${FILESDIR}/${P}-icq-protocol-change2.patch"
-	
+
 
 	use latex || kopete_disable plugin latex
 	use crypt || kopete_disable plugin cryptography

@@ -53,7 +53,7 @@ src_unpack() {
 
 #	epatch "${FILESDIR}/${PN}-6.1-64bit.patch"
 #	epatch "${FILESDIR}/${PN}-6.1-bool.patch"
-#	epatch "${FILESDIR}/${PN}-6.1-external-wx.patch"
+	epatch "${FILESDIR}/${PN}-6.1-external-wx.patch"
 }
 
 src_compile() {

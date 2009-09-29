@@ -1,0 +1,8 @@
+# ChangeLog for app-office/openerp-server
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  29 Sep 2009; Yarik <ygorbunov@gmail.com>
+  +ChangeLog, openerp-server-5.0.6.ebuild:
+  New ebuild for bug #267886.
+

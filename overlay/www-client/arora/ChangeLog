@@ -1,0 +1,8 @@
+# ChangeLog for www-client/arora
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*arora-0.10.0 (02 Oct 2009)
+
+  02 Oct 2009; Yarik <ygorbunov@gmail.com> +arora-0.10.0.ebuild:
+  version bump

@@ -1,6 +1,6 @@
 # Copyright 1999-2009 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/www-client/arora/arora-0.9.0.ebuild,v 1.2 2009/09/03 21:06:07 wired Exp $
+# $Header: :$
 
 EAPI=2
 inherit eutils qt4

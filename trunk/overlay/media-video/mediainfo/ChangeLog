@@ -1,0 +1,7 @@
+# ChangeLog for media-video/mediainfo
+# Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  01 Dec 2008; Yarik <ygorbunov@gmail.com> +mediainfo-0.7.26.ebuild,ChangeLog:
+  New ebuild for #255179.
+

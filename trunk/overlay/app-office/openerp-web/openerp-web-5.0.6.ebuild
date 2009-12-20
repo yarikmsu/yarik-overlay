@@ -19,14 +19,13 @@ IUSE=""
 S="openerp-client-web-${PV}"
 
 DEPEND="
-	>=dev-python/pyparsing-1.5.0
+	dev-python/pyparsing
 	>=dev-python/cherrypy-3.1.2
 	>=dev-python/Babel-0.9.4
-	>=dev-python/mako-0.2.4
-	>=dev-python/formencode-1.2.2
-	>=dev-python/simplejson-2.0.9
-	>=dev-python/pyparsing-1.5.0
-	>=dev-python/beaker-1.1
+	dev-python/mako
+	dev-python/formencode
+	dev-python/simplejson
+	dev-python/beaker
 	"
 RDEPEND=$DEPEND
 

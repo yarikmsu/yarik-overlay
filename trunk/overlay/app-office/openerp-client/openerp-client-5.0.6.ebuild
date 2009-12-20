@@ -17,7 +17,8 @@ IUSE="ssl"
 
 DEPEND="dev-python/pygtk
 	gnome-base/libglade
-	dev-python/egenix-mx-base"
+	dev-python/egenix-mx-base
+	dev-python/matplotlib"
 
 RDEPEND="${DEPEND}"
 

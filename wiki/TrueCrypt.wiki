@@ -2,15 +2,6 @@
 
 == Introduction ==
 
-Now TrueCrypt is masked in the official tree due to legal problems.
-
-*/usr/portage/profiles/package.mask*:
-{{{
-# Daniel Black <dragonheart@gentoo.org> (4 Nov 2008)
-# Legal problems #241650 causing distribution problems #245322 and build problems #237493
-app-crypt/truecrypt
-}}}
-
 This page will show you the steps to install TrueCrypt from [yarik_overlay yarik-overlay]. 
 
 == About TrueCrypt ==
@@ -20,18 +11,10 @@ TrueCrypt is an open-source cross-platform software allowing you to manage encry
 == Install ==
 
  # Install yarik-overlay.
- # Add `app-crypt/truecrypt` in <b>/etc/portage/package.unmask</b>
  # Add `app-crypt/truecrypt` in <b>/etc/portage/package.keywords</b>
  # Run `emerge -av truecrypt` and follow instructions^1^:
  * Download tar.gz source from http://www.truecrypt.org/downloads2.php. 
- Then put the file in <b>/usr/portage/distfiles/truecrypt-6.1a.tar.gz</b>
- * Download RSA Security Inc. PKCS #11 Cryptographic Token Interface (Cryptoki) 2.20 in <b>/usr/portage/distfiles</b>:
-{{{
-cd /usr/portage/distfiles
-wget ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11.h
-wget ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11f.h
-wget ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11t.h
-}}}
+ Then put the file in <b>/usr/portage/distfiles/truecrypt-6.3a.tar.gz</b>
  * Run `emerge -av truecrypt`
 
 1. Instructions might differ from below.

@@ -25,6 +25,7 @@ DEPEND="virtual/postgresql-base
 	dev-python/pytz
 	dev-python/pyxml
 	dev-python/lxml
+	dev-python/vobject
 	ssl? ( dev-python/pyopenssl )
 	dev-python/egenix-mx-base"
 
@@ -87,4 +88,3 @@ pkg_config() {
 		eend $? || die "Failed to create database user"
 	fi
 }
-

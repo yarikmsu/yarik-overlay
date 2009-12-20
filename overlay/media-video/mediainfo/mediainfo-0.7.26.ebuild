@@ -12,7 +12,7 @@ HOMEPAGE="http://mediainfo.sourceforge.net"
 CLI_SRC_URI="mirror://sourceforge/${PN}/MediaInfo_CLI_${PV}_GNU_FromSource.tar.bz2"
 GUI_SRC_URI="mirror://sourceforge/${PN}/MediaInfo_GUI_${PV}_GNU_FromSource.tar.bz2"
 SRC_URI="${CLI_SRC_URI}
-	wxwindows? ( ${GUI_SRC_URI} )"
+	wxwidgets? ( ${GUI_SRC_URI} )"
 
 S="${WORKDIR}"
 S0="${S}/ZenLib/Project/GNU/Library"
@@ -23,19 +23,19 @@ S3="${S}/MediaInfo/Project/GNU/GUI"
 LICENSE="GPL-3 LGPL-3 ZLIB"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="debug static unicode wxwindows"
+IUSE="debug static unicode wxwidgets"
 
 DEPEND="
 	sys-libs/zlib
-	wxwindows? ( =x11-libs/wxGTK-${WX_GTK_VER}* )
+	wxwidgets? ( =x11-libs/wxGTK-${WX_GTK_VER}* )
 "
 RDEPEND="
 	${DEPEND}
 "
 
 pkg_setup() {
-#	confutils_use_depend_all X wxwindows
-	if use wxwindows; then
+#	confutils_use_depend_all X wxwidgets
+	if use wxwidgets; then
 		confutils_require_built_with_all "=x11-libs/wxGTK-${WX_GTK_VER}*" X
 	fi
 }
@@ -52,14 +52,14 @@ src_unpack() {
 
 	cd "${S}"
 	cp -rf MediaInfo_CLI_GNU_FromSource/* ./
-	use wxwindows && cp -rf MediaInfo_GUI_GNU_FromSource/* ./
+	use wxwidgets && cp -rf MediaInfo_GUI_GNU_FromSource/* ./
 	rm -rf MediaInfo_*_GNU_FromSource
 
 	for d in ${S0} ${S1} ${S2}; do
 		cd ${d} && eautoreconf
 	done
 
-	if use wxwindows; then
+	if use wxdgets; then
 		cd ${S3}
 		eautoreconf
 	fi
@@ -76,9 +76,9 @@ src_compile() {
 			$(use_enable static staticlibs) \
 	"
 	local myXconf="
-			$(use_with wxwindows wxwidgets) \
-			$(use_with wxwindows wx-gui) \
-			$(use_with wxwindows wx-config ${WX_CONFIG}) \
+			$(use_with wxwidgets) \
+			$(use_with wxwidgets wx-gui) \
+			$(use_with wxwidgets wx-config ${WX_CONFIG}) \
 	"
 	for d in ${S0} ${S1} ${S2}; do
 		cd ${d}
@@ -88,7 +88,7 @@ src_compile() {
 		emake || die "emake failed in ${d}"
 	done
 
-	if use wxwindows; then
+	if use wxwidgets; then
 		cd ${S3}
 		econf \
 			${myconf} \
@@ -102,12 +102,12 @@ src_install() {
 	for d in ${S0} ${S1} ${S2}; do
 		emake DESTDIR="${D}" -C ${d} install || die
 	done
-	if use wxwindows; then
+	if use wxwidgets; then
 		emake DESTDIR="${D}" -C ${S3} install || die
 	fi
 	dodoc MediaInfo/History*.txt MediaInfoLib/*.txt MediaInfoLib/Release/ReadMe_DLL_Linux.txt
 	newdoc MediaInfo/Release/ReadMe_CLI_Linux.txt ReadMe_CLI.txt
-	if use wxwindows; then
+	if use wxwidgets; then
 		newdoc MediaInfo/Release/ReadMe_CLI_Linux.txt ReadMe_GUI.txt || die
 	fi
 }

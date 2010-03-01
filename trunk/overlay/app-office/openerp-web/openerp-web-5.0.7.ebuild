@@ -16,8 +16,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-S="openerp-client-web-${PV}"
-
 DEPEND="
 	dev-python/pyparsing
 	>=dev-python/cherrypy-3.1.2
@@ -34,8 +32,6 @@ src_compile() {
 }
 
 src_install() {
-	cd "${S}"
-
 	distutils_src_install
 
 	newinitd "${FILESDIR}"/openerp-web-init.d openerp-web

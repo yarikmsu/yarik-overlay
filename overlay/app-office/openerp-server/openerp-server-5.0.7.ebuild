@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="ssl"
 
-DEPEND="virtual/postgresql-base
+DEPEND="dev-db/postgresql-base
 	dev-python/reportlab
 	media-gfx/pydot
 	dev-python/psycopg:2[mxdatetime]

@@ -3,7 +3,7 @@
 # $Header: $
 
   29 Mar 2010; Yarik <ygorbunov@gmail.com> +mediainfo-0.7.29.ebuild:
-  Version bump.
+  Version bump. Old versions are removed.
 
   01 Feb 2010; Yarik <ygorbunov@gmail.com> +mediainfo-0.7.27.ebuild:
   Version bump.

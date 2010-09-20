@@ -2,7 +2,7 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
 <herd>yarik-overlay</herd>
-<use>
+  <use>
 	<flag name="libmms">Support for Microsoft Media Server (MMS) streams via libmms</flag>
-</use>
+  </use>
 </pkgmetadata>

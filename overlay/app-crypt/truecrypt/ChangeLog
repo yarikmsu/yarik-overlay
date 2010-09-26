@@ -2,6 +2,9 @@
 # Copyright 1999-2009 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Sep 2010; Yarik <ygorbunov@gmail.com>
+  Old versions are removed
+
   20 Sep 2010; Yarik <ygorbunov@gmail.com> +truecrypt-7.0a.ebuild:
   Version bump.
 

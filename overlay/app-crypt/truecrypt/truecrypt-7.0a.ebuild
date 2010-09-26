@@ -10,7 +10,7 @@ DESCRIPTION="Free open-source disk encryption software"
 HOMEPAGE="http://www.truecrypt.org/"
 SRC_URI="${P}.tar.gz"
 
-LICENSE="truecrypt-2.8"
+LICENSE="truecrypt-3.0"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="X"
@@ -33,7 +33,7 @@ pkg_nofetch() {
 }
 
 pkg_setup() {
-	local CONFIG_CHECK="~BLK_DEV_DM ~DM_CRYPT ~FUSE_FS ~CRYPTO"
+	local CONFIG_CHECK="~BLK_DEV_DM ~DM_CRYPT ~FUSE_FS ~CRYPTO ~CRYPTO_XTS"
 	linux-info_pkg_setup
 
 	local WX_GTK_VER="2.8"

@@ -2,6 +2,9 @@
 # Copyright 1999-2010 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  26 Sep 2010; Yarik <ygorbunov@gmail.com> +openerp-server-5.0.14.ebuild:
+  version bump
+
   30 Aug 2010; Yarik <ygorbunov@gmail.com> openerp-server-5.0.7.ebuild:
   -DEPEND="virtual/postgresql-base
   +DEPEND="dev-db/postgresql-base

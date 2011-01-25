@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -21,14 +21,14 @@ IUSE="curl debug libmms static wxwidgets"
 RDEPEND="
 	sys-libs/zlib
 	!static? (
-		media-libs/libzen[wxwidgets=]
+		media-libs/libzen
 		~media-libs/lib${P}[curl=,libmms=]
 	)
 	wxwidgets? ( x11-libs/wxGTK:${WX_GTK_VER}[X] )"
 DEPEND="${RDEPEND}
 	dev-util/pkgconfig
 	static? (
-		media-libs/libzen[static-libs,wxwidgets=]
+		media-libs/libzen[static-libs]
 		~media-libs/lib${P}[curl=,libmms=,static-libs]
 	)"
 
@@ -48,7 +48,7 @@ src_configure() {
 	for target in ${TARGETS}; do
 		cd "${S}/Project/GNU/${target}"
 		local myconf=""
-		use wxwidgets && myconf="${myconf} --with-wxwidgets --with-wx-gui"
+		[[ ${target} == "GUI" ]] && myconf="${myconf} --with-wxwidgets --with-wx-gui"
 		econf \
 			${myconf} \
 			--disable-dependency-tracking \
@@ -62,13 +62,13 @@ src_configure() {
 src_compile() {
 	for x in ${TARGETS}; do
 		cd "${S}/Project/GNU/${x}"
-		emake || die "emake failed failed for ${x}"
+		emake || die "emake failed for ${x}"
 	done
 }
 src_install() {
 	for x in ${TARGETS}; do
 		cd "${S}/Project/GNU/${x}"
-		einstall
+		emake DESTDIR="${D}" install || die "emake install failed"
 		dodoc "${S}/History_${x}.txt" || die
 		if [[ "${x}" = "GUI" ]]; then
 			newicon "${S}/Source/Ressource/Image/MediaInfo.png" "${PN}.png"

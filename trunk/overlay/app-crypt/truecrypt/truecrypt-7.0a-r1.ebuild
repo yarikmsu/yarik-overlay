@@ -1,20 +1,20 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="2"
 
-inherit flag-o-matic linux-info multilib toolchain-funcs wxwidgets
+inherit flag-o-matic linux-info multilib toolchain-funcs wxwidgets eutils
 
 DESCRIPTION="Free open-source disk encryption software"
 HOMEPAGE="http://www.truecrypt.org/"
-SRC_URI="${P}.tar.gz"
+SRC_URI="mirror://gentoo/${P}.tar.gz"
 
 LICENSE="truecrypt-3.0"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="X"
-RESTRICT="bindist fetch mirror"
+RESTRICT="bindist"
 
 RDEPEND="|| ( >=sys-fs/lvm2-2.02.45 sys-fs/device-mapper )
 	sys-fs/fuse
@@ -26,11 +26,13 @@ RDEPEND="${RDEPEND}
 
 S="${WORKDIR}/${P}-source"
 
-pkg_nofetch() {
-	elog "Please download .tar.gz source from:"
-	elog "http://www.truecrypt.org/downloads2"
-	elog "Then put the file in ${DISTDIR}/${SRC_URI}"
-}
+#No longer in use as truecrypt is on the Gentoo Mirrors
+#NOTE: It needs to be manually updated every time we version bump.
+#pkg_nofetch() {
+#	elog "Please download .tar.gz source from:"
+#	elog "http://www.truecrypt.org/downloads2"
+#	elog "Then put the file in ${DISTDIR}/${P}.tar.gz"
+#}
 
 pkg_setup() {
 	local CONFIG_CHECK="~BLK_DEV_DM ~DM_CRYPT ~FUSE_FS ~CRYPTO ~CRYPTO_XTS"
@@ -85,23 +87,36 @@ src_test() {
 }
 
 src_install() {
-	dobin Main/truecrypt
-	dodoc Readme.txt "Release/Setup Files/TrueCrypt User Guide.pdf"
-	insinto "/$(get_libdir)/rcscripts/addons"
-	newins "${FILESDIR}/${PN}-stop.sh" "${PN}-stop.sh"
+	dobin Main/truecrypt || die
+	dodoc Readme.txt "Release/Setup Files/TrueCrypt User Guide.pdf" || die
+	exeinto "/$(get_libdir)/rcscripts/addons"
+	newexe "${FILESDIR}/${PN}-stop.sh" "${PN}-stop.sh" || die
+
+	newinitd "${FILESDIR}/${PN}.init" ${PN} || die
+
+	if use X; then
+		newicon Resources/Icons/TrueCrypt-48x48.xpm truecrypt.xpm || die
+		make_desktop_entry ${PN} "TrueCrypt" ${PN} "System" || die
+	fi
 }
 
 pkg_postinst() {
-	warn_license
-}
-pkg_preinst() {
-	warn_license
-}
+	elog "There is now an init script for TrueCrypt for Baselayout-2."
+	elog "If you are a baselayout-2 user and you would like the TrueCrypt"
+	elog "mappings removed on shutdown in order to prevent other file systems"
+	elog "from unmounting then run:"
+	elog "rc-update truecrypt boot"
+	elog ""
 
-warn_license() {
+	ewarn "If you're getting errors about DISPLAY while using the terminal"
+	ewarn "it's a known upstream bug. To use TrueCrypt from the terminal"
+	ewarn "all that's necessary is to run: unset DISPLAY"
+	ewarn "This will make the display unaccessable from that terminal "
+	ewarn "but at least you will be able to access your volumes."
+	ewarn ""
+
 	ewarn "TrueCrypt has very restrictive license."
 	ewarn "Please read the ${LICENSE} license in ${PORTDIR}/licenses"
 	ewarn "directory before using TrueCrypt. Please be explicitly aware of"
 	ewarn "the limitations on redistribution of binaries or modified source."
-	ebeep 5
 }

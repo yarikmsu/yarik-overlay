@@ -1,4 +1,4 @@
-# Copyright 1999-2010 Gentoo Foundation
+# Copyright 1999-2011 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
@@ -10,21 +10,22 @@ inherit kde eutils db-use
 
 DESCRIPTION="Integrated Development Environment for Unix, supporting KDE/Qt, C/C++ and many other languages."
 HOMEPAGE="http://www.kdevelop.org"
-SRC_URI="http://download.opensuse.org/repositories/home:/amilcarlucas/xUbuntu_9.04/${PN}_${PV}.orig.tar.gz mirror://gentoo/kdevelop-3.5-patchset-01.tar.bz2"
+SRC_URI="http://download.opensuse.org/repositories/home:/amilcarlucas/xUbuntu_9.04/${PN}_${PV}.orig.tar.gz
+	http://dev.gentoo.org/~tampakrap/tarballs/${PN}-3.5-patchset-01.tar.bz2"
 
 LICENSE="GPL-2"
 
 SLOT="3.5"
-KEYWORDS="~amd64 ~hppa ~ppc ~ppc64 ~sparc ~x86"
+KEYWORDS="amd64 hppa ppc ppc64 sparc x86"
 IUSE="ada clearcase cvs fortran haskell java pascal perforce perl php python ruby sql subversion"
 
 DEPEND="!<dev-util/kdevelop-3.5.5
 	sys-devel/gdb
 	>=sys-libs/db-4.1
-	cvs? ( || ( kde-base/cervisia:3.5 kde-base/kdesdk:3.5 ) )"
+	cvs? ( kde-base/cervisia:3.5 )"
 
 RDEPEND="${DEPEND}
-	subversion? ( || ( kde-base/kdesdk-kioslaves:3.5 kde-base/kdesdk:3.5[subversion] ) )"
+	subversion? ( kde-base/kdesdk-kioslaves:3.5 )"
 DEPEND="${DEPEND}
 	>=sys-devel/flex-2.5.33"
 
@@ -34,7 +35,8 @@ PATCHES=( "${FILESDIR}/kdevelop-3.5-gcc4.4.patch"
 	"${FILESDIR}/kdevelop-3.5-parallel.patch"
 	"${FILESDIR}/kdevelop-3.5.5-libtool.patch"
 	"${WORKDIR}/kdevelop-3.5-libtool.m4.in.patch"
-	"${WORKDIR}/kdevelop-3.5-ltmain.sh.patch" )
+	"${WORKDIR}/kdevelop-3.5-ltmain.sh.patch"
+	"${FILESDIR}/kdevelop-3.5.5-gcc4.5.patch" )
 
 pkg_setup() {
 	elog

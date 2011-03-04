@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  05 Mar 2011; Yarik <ygorbunov@gmail.com> openerp-client-5.0.15.ebuild:
+  Bug #351929 is fixed
+
   26 Jan 2011; Yarik <ygorbunov@gmail.com> +openerp-client-5.0.15.ebuild:
   version bump
 

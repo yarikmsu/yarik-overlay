@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-CDEPEND=">=dev-python/cherrypy-3.1.2
+CDEPEND="=dev-python/cherrypy-3.1*
 	dev-python/mako
 	dev-python/Babel
 	dev-python/formencode

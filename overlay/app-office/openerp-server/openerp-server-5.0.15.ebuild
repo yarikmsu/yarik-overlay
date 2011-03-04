@@ -60,6 +60,9 @@ pkg_preinst() {
 }
 
 pkg_postinst() {
+	chown ${OPENERP_USER}:${OPENERP_GROUP} /var/run/openerp
+	chown ${OPENERP_USER}:${OPENERP_GROUP} /var/log/openerp
+
 	elog "In order to setup the initial database, run:"
 	elog " emerge --config =${CATEGORY}/${PF}"
 	elog "Be sure the database is started before"

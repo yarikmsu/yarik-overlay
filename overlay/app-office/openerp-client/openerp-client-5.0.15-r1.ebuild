@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-CDEPEND="dev-python/matplotlib
+CDEPEND="dev-python/matplotlib[gtk]
 	dev-python/egenix-mx-base
 	x11-libs/hippo-canvas[python]"
 

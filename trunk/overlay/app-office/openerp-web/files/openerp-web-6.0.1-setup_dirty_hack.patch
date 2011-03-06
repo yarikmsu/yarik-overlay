@@ -1,0 +1,70 @@
+diff -upabr openerp-web-6.0.1.orig/scripts/openerp-web openerp-web-6.0.1/scripts/openerp-web
+--- openerp-web-6.0.1.orig/scripts/openerp-web	2011-03-06 02:04:56.000000000 +0300
++++ openerp-web-6.0.1/scripts/openerp-web	2011-03-06 02:05:06.000000000 +0300
+@@ -1,5 +1,9 @@
+ #!/usr/bin/env python
+ import sys
++import os
++from distutils.sysconfig import get_python_lib
++sp_path = os.path.join(get_python_lib(), 'openerp-web')
++sys.path.append(sp_path)
+ 
+ from openobject.commands import start, ConfigurationError
+ 
+diff -upabr openerp-web-6.0.1.orig/setup.py openerp-web-6.0.1/setup.py
+--- openerp-web-6.0.1.orig/setup.py	2011-03-06 02:04:56.000000000 +0300
++++ openerp-web-6.0.1/setup.py	2011-03-06 02:05:37.000000000 +0300
+@@ -3,6 +3,8 @@ import re
+ import sys
+ 
+ from setuptools import setup
++from distutils.sysconfig import get_python_lib
++
+ 
+ execfile(os.path.join("openobject", "release.py"))
+ 
+@@ -22,6 +24,7 @@ FILE_PATTERNS = \
+     r'.+\.(py|cfg|po|pot|mo|txt|rst|gif|png|jpg|ico|mako|html|js|css|htc|swf)$'
+ def find_data_files(source, patterns=FILE_PATTERNS):
+     file_matcher = re.compile(patterns, re.I)
++    sp_path = os.path.join(get_python_lib(prefix=''), 'openerp-web')
+     out = []
+     for base, _, files in os.walk(source):
+         cur_files = []
+@@ -30,7 +33,7 @@ def find_data_files(source, patterns=FIL
+                 cur_files.append(os.path.join(base, f))
+         if cur_files:
+             out.append(
+-                (base, cur_files))
++                (os.path.join(sp_path,base), cur_files))
+ 
+     return out
+ 
+@@ -54,16 +57,7 @@ setup(
+         "pytz >= 2009j"
+     ],
+     zip_safe=False,
+-    packages=[
+-        'openobject',
+-        'openobject.admin',
+-        'openobject.admin.i18n',
+-        'openobject.controllers',
+-        'openobject.i18n',
+-        'openobject.test',
+-        'openobject.tools',
+-        'openobject.widgets'
+-    ],
++    packages=[],
+     classifiers=[
+         'Development Status :: 5 - Production/Stable',
+         'Operating System :: OS Independent',
+@@ -77,8 +71,7 @@ setup(
+               + find_data_files('addons/view_diagram')
+               + find_data_files('addons/view_graph')
+               + find_data_files('addons/widget_ckeditor')
+-              + find_data_files('doc', patterns='')
+-              + find_data_files('openobject', patterns=r'.+\.(cfg|css|js|mako|gif|png|jpg|ico)')
++              + find_data_files('openobject')
+               + opts.pop('data_files', [])
+     ),
+     **opts

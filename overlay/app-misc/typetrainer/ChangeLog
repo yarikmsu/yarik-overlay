@@ -1,0 +1,8 @@
+# ChangeLog for app-misc/typetrainer
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  08 Mar 2011; Yarik <ygorbunov@gmail.com>
+  +ChangeLog, app-misc/typetrainer-0.5.2.ebuild:
+  New ebuild for typetrainer.
+

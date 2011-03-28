@@ -26,7 +26,7 @@ Edit your <b>/etc/make.conf</b>
 # echo "source /usr/local/portage/layman/make.conf" >> /etc/make.conf
 }}}
 
-Now all packages from overlay available with `emerge`.
+Now all packages from overlay available with *emerge*.
 
 == Old ways to add yarik-overlay ==
 === First way === 

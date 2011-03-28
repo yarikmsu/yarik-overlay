@@ -5,17 +5,34 @@ Layman is a tool designed to help automate management of your local repository o
 
 If you don't have *layman* - install it:
 {{{
-emerge -av layman
+# emerge -av layman
 }}}
 
 == How to add overlay ==
+Yarik-overlay available in layman central overlays list. 
+{{{
+# layman -a yarik-overlay
+}}}
 
+== Configure layman ==
+Edit your <b>/etc/make.conf</b>
+(for layman 1.3 and later)
+{{{
+# echo "source /var/lib/layman/make.conf" >> /etc/make.conf
+}}}
+(for layman 1.2)
+{{{
+# echo "source /usr/local/portage/layman/make.conf" >> /etc/make.conf
+}}}
+
+Now all packages from overlay available with `emerge`.
+
+== Old way to add yarik-overlay ==
 === First way === 
 {{{
-layman -o http://yarik-overlay.googlecode.com/files/yarik-overlay.xml -f -a yarik-overlay
+# layman -o http://yarik-overlay.googlecode.com/files/yarik-overlay.xml -f -a yarik-overlay
 }}}
 Overlay will added, but won't showed in `layman -L` list.
-
 === Second way ===
 Edit your <b>/etc/layman/layman.cfg</b> and add new overlay list:
 {{{
@@ -24,18 +41,10 @@ overlays  : http://www.gentoo.org/proj/en/overlays/layman-global.txt
 }}}
 Then you must add [yarik_overlay yarik-overlay] to sync list:
 {{{
-layman -L
-layman -a yarik-overlay
+# layman -L
+# layman -a yarik-overlay
 }}}
 
-== Configure layman ==
-
-Edit your <b>/etc/make.conf</b> and add:
-{{{
-source /usr/local/portage/layman/make.conf
-}}}
-
-Now all packages from overlay available with `emerge`.
 
 == More information about layman ==
 

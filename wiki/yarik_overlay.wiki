@@ -16,6 +16,7 @@ Yarik-overlay available in layman central overlays list.
 
 == Configure layman ==
 Edit your <b>/etc/make.conf</b>
+
 (for layman 1.3 and later)
 {{{
 # echo "source /var/lib/layman/make.conf" >> /etc/make.conf
@@ -27,7 +28,7 @@ Edit your <b>/etc/make.conf</b>
 
 Now all packages from overlay available with `emerge`.
 
-== Old way to add yarik-overlay ==
+== Old ways to add yarik-overlay ==
 === First way === 
 {{{
 # layman -o http://yarik-overlay.googlecode.com/files/yarik-overlay.xml -f -a yarik-overlay
@@ -39,12 +40,11 @@ Edit your <b>/etc/layman/layman.cfg</b> and add new overlay list:
 overlays  : http://www.gentoo.org/proj/en/overlays/layman-global.txt
             http://yarik-overlay.googlecode.com/files/yarik-overlay.xml
 }}}
-Then you must add [yarik_overlay yarik-overlay] to sync list:
+Then you must add overlay to sync list:
 {{{
 # layman -L
 # layman -a yarik-overlay
 }}}
-
 
 == More information about layman ==
 

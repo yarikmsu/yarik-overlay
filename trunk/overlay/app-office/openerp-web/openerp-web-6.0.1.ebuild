@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
+EAPI="3"
+PYTHON_DEPEND="2"
 
 inherit eutils distutils
 
@@ -24,6 +25,13 @@ CDEPEND="=dev-python/cherrypy-3.1*
 
 RDEPEND="${CDEPEND}"
 DEPEND="${CDEPEND}"
+
+PYTHON_MODNAME="openerp"
+
+pkg_setup() {
+	python_set_active_version 2
+	python_pkg_setup
+}
 
 src_prepare() {
 	epatch "${FILESDIR}/${PF}-setup_dirty_hack.patch"

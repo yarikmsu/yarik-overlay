@@ -2,9 +2,9 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="2"
-PYTHON_DEPEND="2:2.6"
-inherit distutils python
+EAPI="3"
+PYTHON_DEPEND="2"
+inherit distutils
 
 DESCRIPTION="Typing tutor trainer"
 HOMEPAGE="http://github.com/baverman/typetrainer"
@@ -22,6 +22,7 @@ DEPEND="${CDEPEND}"
 
 pkg_setup() {
 	python_set_active_version 2
+	python_pkg_setup
 }
 
 src_install() {

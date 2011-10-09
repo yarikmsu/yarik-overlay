@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Oct 2011; Yarik <ygorbunov@gmail.com> +openerp-web-6.0.3.ebuild:
+  version bump
+
   24 Apr 2011; Yarik <ygorbunov@gmail.com> :
   Use Python 2, EAPI 3
 

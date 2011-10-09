@@ -26,7 +26,7 @@ CDEPEND="=dev-python/cherrypy-3.1*
 RDEPEND="${CDEPEND}"
 DEPEND="${CDEPEND}"
 
-PYTHON_MODNAME="openerp"
+PYTHON_MODNAME="openerp-web"
 
 pkg_setup() {
 	python_set_active_version 2

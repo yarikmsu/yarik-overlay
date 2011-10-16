@@ -21,7 +21,6 @@ CDEPEND="dev-db/postgresql-server
 	dev-python/psycopg:2[mxdatetime]
 	dev-python/pychart
 	dev-python/pytz
-	dev-python/pyxml
 	dev-python/pyopenssl
 	dev-python/reportlab
 	media-gfx/pydot

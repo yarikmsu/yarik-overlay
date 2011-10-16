@@ -2,6 +2,9 @@
 # Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  17 Oct 2011; Yarik <ygorbunov@gmail.com> openerp-web-6.0.3.ebuild:
+  Setting permissions on web_livechat dir. Dependency on strictly version cherrypy-3.1.2 is removed.
+
   16 Oct 2011; Yarik <ygorbunov@gmail.com>
   Old versions are removed
 

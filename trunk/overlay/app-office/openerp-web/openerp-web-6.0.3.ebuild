@@ -16,7 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-CDEPEND="=dev-python/cherrypy-3.1*
+CDEPEND="dev-python/cherrypy
 	dev-python/mako
 	dev-python/Babel
 	dev-python/formencode
@@ -50,4 +50,8 @@ src_install() {
 	doins doc/${PN}.cfg || die "doins failed."
 
 	dodoc doc/*
+}
+
+pkg_postinst() {
+	chown -R ${OPENERP_USER}:${OPENERP_GROUP} "$(python_get_sitedir)/openerp-web/addons/web_livechat/"
 }

@@ -19,7 +19,8 @@ CDEPEND="dev-python/matplotlib[gtk]
 	dev-python/egenix-mx-base
 	x11-libs/hippo-canvas[python]
 	media-gfx/pydot
-	dev-python/pyxml"
+	dev-python/lxml
+	x11-libs/gdk-pixbuf[jpeg]"
 
 RDEPEND="${CDEPEND}"
 DEPEND="${CDEPEND}"

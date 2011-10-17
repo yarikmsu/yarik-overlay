@@ -51,7 +51,3 @@ src_install() {
 
 	dodoc doc/*
 }
-
-pkg_postinst() {
-	chown -R ${OPENERP_USER}:${OPENERP_GROUP} "$(python_get_sitedir)/openerp-web/addons/web_livechat/"
-}

@@ -64,11 +64,13 @@ pkg_preinst() {
 
 	fowners ${OPENERP_USER}:${OPENERP_GROUP} /var/run/openerp
 	fowners ${OPENERP_USER}:${OPENERP_GROUP} /var/log/openerp
+	fowners -R ${OPENERP_USER}:${OPENERP_GROUP} "$(python_get_sitedir)/${PN}/addons/web_livechat/"
 }
 
 pkg_postinst() {
 	chown ${OPENERP_USER}:${OPENERP_GROUP} /var/run/openerp
 	chown ${OPENERP_USER}:${OPENERP_GROUP} /var/log/openerp
+	chown -R ${OPENERP_USER}:${OPENERP_GROUP} "$(python_get_sitedir)/${PN}/addons/web_livechat/"
 
 	elog "In order to setup the initial database, run:"
 	elog " emerge --config =${CATEGORY}/${PF}"

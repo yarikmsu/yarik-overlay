@@ -3,6 +3,9 @@
 # $Header: $
 
   18 Oct 2011; Yarik <ygorbunov@gmail.com> openerp-server-6.0.3.ebuild:
+  Setting permissions on addons dir.
+
+  18 Oct 2011; Yarik <ygorbunov@gmail.com> openerp-server-6.0.3.ebuild:
   Setting permissions on web_livechat dir.
 
   16 Oct 2011; Yarik <ygorbunov@gmail.com>

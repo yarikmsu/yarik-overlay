@@ -9,7 +9,7 @@ DESCRIPTION="open source high performance realtime 3D engine written in C++"
 HOMEPAGE="http://irrlicht.sourceforge.net/"
 #SRC_URI="mirror://sourceforge/${PN}/${P}.zip"
 ESVN_REPO_URI="https://irrlicht.svn.sourceforge.net/svnroot/irrlicht/trunk/"
-ESVN_REVISION=3843
+ESVN_REVISION=3940
 
 LICENSE="ZLIB"
 SLOT="0"
@@ -44,7 +44,7 @@ src_prepare() {
 src_compile() {
 	cd source/Irrlicht
 	tc-export CXX CC AR
-	emake sharedlib staticlib || die "emake failed"
+	emake NDEBUG=1 sharedlib staticlib || die "emake failed"
 }
 
 src_install() {

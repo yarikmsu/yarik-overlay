@@ -29,7 +29,7 @@ S="${WORKDIR}/${P}-source"
 
 #See bug 241650.
 pkg_nofetch() {
-	elog "Please download Truecrypt 7.1 Source.tar.gz source from:"
+	elog "Please download Truecrypt 7.1a Source.tar.gz source from:"
 	elog "http://www.truecrypt.org/downloads2"
 	elog "Then put the file in ${DISTDIR}/${P}.tar.gz"
 }

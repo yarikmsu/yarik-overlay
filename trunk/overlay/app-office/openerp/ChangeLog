@@ -1,0 +1,7 @@
+# ChangeLog for app-office/openerp
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  1 Jul 2012; Yarik <ygorbunov@gmail.com> +openerp-6.1.1_p20120617.ebuild:
+  New ebuild for OpenERP 6.1. Now openerp is a complete WSGI application and openeropweb don't need anymore.
+

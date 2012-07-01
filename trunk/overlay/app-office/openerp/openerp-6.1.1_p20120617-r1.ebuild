@@ -15,13 +15,12 @@ SRC_URI="http://nightly.openerp.com/6.1/nightly/src/${FNAME}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
+IUSE="postgres ldap ssl"
 
-CDEPEND="dev-db/postgresql-server
+CDEPEND="postgres? ( dev-db/postgresql-server )
 	dev-python/lxml
-	dev-python/psycopg:2[mxdatetime]
+	dev-python/psycopg:2
 	dev-python/pychart
-	dev-python/pytz
 	dev-python/reportlab
 	media-gfx/pydot
 	dev-libs/libxslt[python]
@@ -30,14 +29,17 @@ CDEPEND="dev-db/postgresql-server
 	dev-python/mako
 	dev-python/pyyaml
 	dev-python/Babel
-	dev-python/simplejson
-	dev-python/pyparsing
 	dev-python/gdata
-	dev-python/python-ldap
+	ldap? ( dev-python/python-ldap )
 	dev-python/python-openid
 	dev-python/werkzeug
 	dev-python/xlwt
+	dev-python/feedparser
+	<dev-python/python-dateutil-2
+	dev-python/pywebdav
+	ssl? ( dev-python/pyopenssl )
 	dev-python/zsi"
+#   dev-python/vatnumber
 
 RDEPEND="${CDEPEND}"
 DEPEND="${CDEPEND}"

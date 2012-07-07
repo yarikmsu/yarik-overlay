@@ -23,8 +23,6 @@ CDEPEND="postgres? ( dev-db/postgresql-server )
 	dev-python/pychart
 	dev-python/reportlab
 	media-gfx/pydot
-	dev-libs/libxslt[python]
-	dev-libs/libxml2[python]
 	dev-python/vobject
 	dev-python/mako
 	dev-python/pyyaml
@@ -80,6 +78,8 @@ pkg_preinst() {
 	fowners ${OPENERP_USER}:${OPENERP_GROUP} /var/run/openerp
 	fowners ${OPENERP_USER}:${OPENERP_GROUP} /var/log/openerp
 	fowners -R ${OPENERP_USER}:${OPENERP_GROUP} "$(python_get_sitedir)/${PN}/addons/"
+
+	use postgres || sed -i '6,8d' "${D}/etc/init.d/openerp" || die "sed failed"
 }
 
 pkg_postinst() {

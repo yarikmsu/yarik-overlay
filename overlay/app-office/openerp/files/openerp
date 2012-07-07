@@ -8,14 +8,14 @@ depend() {
 }
 
 start() {
-	ebegin "Starting openerp-server"
+	ebegin "Starting openerp server"
 	start-stop-daemon --start --quiet --pidfile "${PIDFILE}" --exec /usr/bin/openerp-server \
 		--make-pidfile --user "${USER}" --background -- ${DAEMON_OPTS}
 	eend $?
 }
 
 stop() {
-	ebegin "Stopping openerp-server"
+	ebegin "Stopping openerp server"
 	start-stop-daemon --stop --quiet --pidfile "${PIDFILE}" --signal 9
 	rm -f "${PIDFILE}"
 	eend $?

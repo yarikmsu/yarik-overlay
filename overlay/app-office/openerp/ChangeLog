@@ -2,6 +2,10 @@
 # Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  8 Jul 2012; Yarik <ygorbunov@gmail.com> +openerp-6.1.1_p20120617-r2.ebuild:
+  dev-libs/libxslt[python] and dev-libs/libxml2[python] depends are removed.
+  Removing after postgresql depend in init script if postgres use flag is missing.
+
   2 Jul 2012; Yarik <ygorbunov@gmail.com> +openerp-6.1.1_p20120617-r1.ebuild:
   Use flags, depends
 

@@ -36,8 +36,8 @@ CDEPEND="postgres? ( dev-db/postgresql-server )
 	<dev-python/python-dateutil-2
 	dev-python/pywebdav
 	ssl? ( dev-python/pyopenssl )
+	dev-python/vatnumber
 	dev-python/zsi"
-#   dev-python/vatnumber
 
 RDEPEND="${CDEPEND}"
 DEPEND="${CDEPEND}"

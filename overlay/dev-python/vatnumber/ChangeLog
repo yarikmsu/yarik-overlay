@@ -1,0 +1,7 @@
+# ChangeLog for dev-python/vatnumber 
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  08 Jul 2012; Yarik <ygorbunov@gmail.com>+vatnumber-1.0.ebuild:
+  New ebuild for dev-python/vatnumber (python module to validate VAT numbers).
+

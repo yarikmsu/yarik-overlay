@@ -9,7 +9,7 @@ inherit eutils distutils
 
 DESCRIPTION="Open Source ERP & CRM"
 HOMEPAGE="http://www.openerp.com/"
-FNAME="${PN}-6.1-20120617-233256"
+FNAME="${PN}-6.1-20121130-002722"
 SRC_URI="http://nightly.openerp.com/6.1/nightly/src/${FNAME}.tar.gz"
 
 LICENSE="GPL-2"
@@ -33,7 +33,7 @@ CDEPEND="postgres? ( dev-db/postgresql-server )
 	dev-python/werkzeug
 	dev-python/xlwt
 	dev-python/feedparser
-	<dev-python/python-dateutil-2
+	dev-python/python-dateutil
 	dev-python/pywebdav
 	ssl? ( dev-python/pyopenssl )
 	dev-python/vatnumber

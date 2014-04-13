@@ -1,48 +1,45 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Header: /var/cvsroot/gentoo-x86/media-libs/libmediainfo/libmediainfo-0.7.67.ebuild,v 1.2 2014/03/29 00:22:58 radhermit Exp $
 
-EAPI="4"
+EAPI=5
 
-inherit autotools multilib flag-o-matic eutils
+inherit autotools eutils flag-o-matic multilib
 
 MY_PN="MediaInfo"
 DESCRIPTION="MediaInfo libraries"
-HOMEPAGE="http://mediainfo.sourceforge.net/"
-SRC_URI="mirror://sourceforge/mediainfo/source/${PN}/${PV}/${PN}_${PV}.tar.bz2"
+HOMEPAGE="http://mediaarea.net/mediainfo/"
+SRC_URI="mirror://sourceforge/mediainfo/${PN}_${PV}.tar.bz2"
 
-LICENSE="LGPL-3"
+LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="curl doc mms static-libs"
 
 RDEPEND="sys-libs/zlib
-	>=dev-libs/tinyxml-2.6.2[stl]
-	>=media-libs/libzen-0.4.21-r1[static-libs=]
+	dev-libs/tinyxml2:=
+	>=media-libs/libzen-0.4.28[static-libs=]
 	curl? ( net-misc/curl )
 	mms? ( >=media-libs/libmms-0.6.1[static-libs=] )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig
+	virtual/pkgconfig
 	doc? ( app-doc/doxygen )"
 
-S="${WORKDIR}/${MY_PN}Lib/Project/GNU/Library"
+S=${WORKDIR}/${MY_PN}Lib/Project/GNU/Library
 
 src_prepare() {
-	pushd "${WORKDIR}"/${MY_PN}Lib > /dev/null
-	epatch "${FILESDIR}"/${PN}-0.7.48-system-tinyxml.patch
-	popd > /dev/null
+	sed -i 's:-O2::' configure.ac || die
+	append-cppflags -DMEDIAINFO_LIBMMS_DESCRIBE_SUPPORT=0
 
-	# Don't force -O2 by default
-	sed -i -e "s:-O2::" configure.ac
+	epatch "${FILESDIR}"/${PN}-0.7.63-pkgconfig.patch
 
-	append-flags -DMEDIAINFO_LIBMMS_DESCRIBE_SUPPORT=0
-	append-flags -DTIXML_USE_STL
 	eautoreconf
 }
 
 src_configure() {
 	econf \
 		--enable-shared \
+		--with-libtinyxml2 \
 		$(use_with curl libcurl) \
 		$(use_with mms libmms) \
 		$(use_enable static-libs static) \
@@ -53,7 +50,7 @@ src_compile() {
 	default
 
 	if use doc; then
-		cd "${WORKDIR}/${MY_PN}Lib/Source/Doc"
+		cd "${WORKDIR}"/${MY_PN}Lib/Source/Doc
 		doxygen Doxyfile || die
 	fi
 }
@@ -61,8 +58,9 @@ src_compile() {
 src_install() {
 	default
 
+	edos2unix ${PN}.pc #414545
 	insinto /usr/$(get_libdir)/pkgconfig
-	doins "${S}"/${PN}.pc
+	doins ${PN}.pc
 
 	for x in ./ Archive Audio Duplicate Export Image Multiple Reader Tag Text Video; do
 		insinto /usr/include/${MY_PN}/${x}
@@ -77,5 +75,5 @@ src_install() {
 		dohtml -r "${WORKDIR}"/${MY_PN}Lib/Doc/*
 	fi
 
-	find "${ED}" -name '*.la' -exec rm -f {} +
+	prune_libtool_files
 }

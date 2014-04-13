@@ -1,17 +1,17 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI=5
 WX_GTK_VER="2.8"
 
-inherit autotools-utils wxwidgets multilib
+inherit eutils autotools wxwidgets multilib
 
 DESCRIPTION="MediaInfo supplies technical and tag information about media files"
-HOMEPAGE="http://mediainfo.sourceforge.net"
-SRC_URI="mirror://sourceforge/${PN}/source/${PN}/${PV}/${PN}_${PV}.tar.bz2"
+HOMEPAGE="http://mediaarea.net/mediainfo/"
+SRC_URI="mirror://sourceforge/${PN}/${PN}_${PV}.tar.bz2"
 
-LICENSE="LGPL-3"
+LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="curl mms wxwidgets"
@@ -21,11 +21,9 @@ RDEPEND="sys-libs/zlib
 	~media-libs/lib${P}[curl=,mms=]
 	wxwidgets? ( x11-libs/wxGTK:${WX_GTK_VER}[X] )"
 DEPEND="${RDEPEND}
-	dev-util/pkgconfig"
+	virtual/pkgconfig"
 
-AUTOTOOLS_IN_SOURCE_BUILD=1
-
-S="${WORKDIR}/MediaInfo"
+S=${WORKDIR}/MediaInfo
 
 pkg_setup() {
 	TARGETS="CLI"
@@ -35,7 +33,7 @@ pkg_setup() {
 src_prepare() {
 	local target
 	for target in ${TARGETS}; do
-		cd "${S}/Project/GNU/${target}"
+		cd "${S}"/Project/GNU/${target}
 		sed -i -e "s:-O2::" configure.ac
 		eautoreconf
 	done
@@ -44,30 +42,29 @@ src_prepare() {
 src_configure() {
 	local target
 	for target in ${TARGETS}; do
-		ECONF_SOURCE="${S}/Project/GNU/${target}"
-		[[ ${target} == "GUI" ]] && local myeconfargs=( --with-wxwidgets --with-wx-gui )
-		autotools-utils_src_configure
+		cd "${S}"/Project/GNU/${target}
+		local args=""
+		[[ ${target} == "GUI" ]] && args="--with-wxwidgets --with-wx-gui"
+		econf ${args}
 	done
 }
 
 src_compile() {
 	local target
 	for target in ${TARGETS}; do
-		ECONF_SOURCE="${S}/Project/GNU/${target}"
-		autotools-utils_src_compile
+		cd "${S}"/Project/GNU/${target}
+		default
 	done
 }
 src_install() {
 	local target
 	for target in ${TARGETS}; do
-		ECONF_SOURCE="${S}/Project/GNU/${target}"
-		autotools-utils_src_install
+		cd "${S}"/Project/GNU/${target}
+		default
 		dodoc "${S}"/History_${target}.txt
 		if [[ ${target} == "GUI" ]]; then
-			newicon "${S}"/Source/Ressource/Image/MediaInfo.png ${PN}.png
+			newicon "${S}"/Source/Resource/Image/MediaInfo.png ${PN}.png
 			make_desktop_entry ${PN}-gui MediaInfo ${PN} "AudioVideo;GTK"
 		fi
 	done
-
-	dohtml "${S}"/ReadMe.html
 }

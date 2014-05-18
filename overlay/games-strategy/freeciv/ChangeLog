@@ -1,0 +1,7 @@
+# ChangeLog for games-strategy/freeciv
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+	19 May 2014; Yarik <ygorbunov@gmail.com> +freeciv-2.3.5.ebuild,ChangeLog:
+  New ebuild for freeciv - multiplayer strategy game (Civilization Clone).
+

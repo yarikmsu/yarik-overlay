@@ -1,6 +1,6 @@
 # Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/media-libs/libmediainfo/libmediainfo-0.7.67.ebuild,v 1.2 2014/03/29 00:22:58 radhermit Exp $
+# $Header: $
 
 EAPI=5
 

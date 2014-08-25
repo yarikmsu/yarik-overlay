@@ -2,6 +2,9 @@
 # Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+	26 Aug 2014; Yarik <ygorbunov@gmail.com> +freeciv-2.4.3.ebuild:
+	Version bump.
+
 	19 May 2014; Yarik <ygorbunov@gmail.com> +freeciv-2.3.5.ebuild,ChangeLog:
   New ebuild for freeciv - multiplayer strategy game (Civilization Clone).
 

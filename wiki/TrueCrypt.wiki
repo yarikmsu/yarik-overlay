@@ -8,7 +8,7 @@ TrueCrypt is an open-source cross-platform software allowing you to manage encry
 == Install ==
 
  # Install yarik-overlay.
- * `layman -a yarik-overlay`
+   * `layman -a yarik-overlay`
  # Add `app-crypt/truecrypt` in <b>/etc/portage/package.keywords</b>
  # Run `emerge -av truecrypt`
 

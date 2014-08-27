@@ -1,6 +1,9 @@
 # ChangeLog for app-crypt/truecrypt
-# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  27 Aug 2014; Yarik <ygorbunov@gmail.com> +truecrypt-7.1a-r1.ebuild:
+  Fetch restriction is removed, SRC_URI is fixed.
 
   19 Feb 2012; Yarik <ygorbunov@gmail.com> +truecrypt-7.1a.ebuild:
   Version bump.

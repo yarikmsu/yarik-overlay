@@ -1,24 +1,23 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="4"
+EAPI="5"
 
-inherit flag-o-matic linux-info multilib toolchain-funcs wxwidgets eutils \
-	pax-utils
+inherit flag-o-matic linux-info multilib toolchain-funcs wxwidgets eutils pax-utils
 
 DESCRIPTION="Free open-source disk encryption software"
 HOMEPAGE="http://www.truecrypt.org/"
-SRC_URI="${P}.tar.gz\
-	mirror://gentoo/${PN}-pkcs11.h.bz2"
+SRC_URI="https://googledrive.com/host/0B8mcZauYdlmqTGF5N2FIdlNlVFk/${P}.tar.gz \
+		 http://git.gnupg.org/cgi-bin/gitweb.cgi?p=scute.git;a=blob_plain;f=src/pkcs11.h;hb=38bdba0bb1ab93950489c645938c93ed577f9139 -> ${P}-pkcs11.h"
 
 LICENSE="truecrypt-3.0"
 SLOT="0"
 KEYWORDS="-* ~amd64 ~ppc ~x86"
-IUSE="X"
-RESTRICT="mirror fetch bindist"
+IUSE="X +asm"
+RESTRICT="bindist"
 
-RDEPEND="|| ( >=sys-fs/lvm2-2.02.45 sys-fs/device-mapper )
+RDEPEND=">=sys-fs/lvm2-2.02.45
 	sys-fs/fuse
 	x11-libs/wxGTK:2.8[X?]
 	app-admin/sudo"
@@ -26,13 +25,6 @@ DEPEND="${RDEPEND}
 	!ppc? ( dev-lang/nasm )"
 
 S="${WORKDIR}/${P}-source"
-
-#See bug 241650.
-pkg_nofetch() {
-	elog "Please download Truecrypt 7.1a Source.tar.gz source from:"
-	elog "http://www.truecrypt.org/downloads2"
-	elog "Then put the file in ${DISTDIR}/${P}.tar.gz"
-}
 
 pkg_setup() {
 	local CONFIG_CHECK="~BLK_DEV_DM ~DM_CRYPT ~FUSE_FS ~CRYPTO ~CRYPTO_XTS"
@@ -54,14 +46,16 @@ src_prepare() {
 
 	epatch "${FILESDIR}/makefile-archdetect.diff"
 	epatch "${FILESDIR}/execstack-fix.diff"
+	epatch "${FILESDIR}/${P}-build.patch"
 	mkdir "${T}"/pkcs11 || die
-	ln -s "${WORKDIR}"/truecrypt-pkcs11.h "${T}"/pkcs11/pkcs11.h || die
+	ln -s "${DISTDIR}"/${P}-pkcs11.h "${T}"/pkcs11/pkcs11.h || die
 }
 
 src_compile() {
 	local EXTRA
 
 	use X || EXTRA+=" NOGUI=1"
+	use asm  || EXTRA+=" NOASM=1"
 	append-flags -DCKR_NEW_PIN_MODE=0x000001B0 -DCKR_NEXT_OTP=0x000001B1
 
 	emake \
@@ -106,17 +100,15 @@ pkg_postinst() {
 	elog "mappings removed on shutdown in order to prevent other file systems"
 	elog "from unmounting then run:"
 	elog "rc-update add truecrypt boot"
-	elog ""
+	elog
 
 	ewarn "If you're getting errors about DISPLAY while using the terminal"
 	ewarn "it's a known upstream bug. To use TrueCrypt from the terminal"
 	ewarn "all that's necessary is to run: unset DISPLAY"
 	ewarn "This will make the display unaccessable from that terminal "
 	ewarn "but at least you will be able to access your volumes."
-	ewarn ""
+	ewarn
 
-	ewarn "TrueCrypt has very restrictive license."
-	ewarn "Please read the ${LICENSE} license in ${PORTDIR}/licenses"
-	ewarn "directory before using TrueCrypt. Please be explicitly aware of"
-	ewarn "the limitations on redistribution of binaries or modified source."
+	ewarn "TrueCrypt has a very restrictive license. Please be explicitly aware"
+	ewarn "of the limitations on redistribution of binaries or modified source."
 }

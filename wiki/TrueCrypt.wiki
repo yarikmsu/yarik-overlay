@@ -1,21 +1,16 @@
 #summary This page will show you the steps to install TrueCrypt from yarik-overlay.
 
-== Introduction ==
-
-This page will show you the steps to install TrueCrypt from [yarik_overlay yarik-overlay]. 
 
 == About TrueCrypt ==
 
-TrueCrypt is an open-source cross-platform software allowing you to manage encrypted disks. The main features are its creation of virtual encrypted disks and the encryption of entire partitions. There are two different security levels available: The hidden volume and the normal volume. See the [http://www.truecrypt.org official website] for details.
+TrueCrypt is an open-source cross-platform software allowing you to manage encrypted disks. The main features are its creation of virtual encrypted disks and the encryption of entire partitions. There are two different security levels available: The hidden volume and the normal volume. See the [http://www.truecrypt.ch official website] for details.
 
 == Install ==
 
  # Install yarik-overlay.
+ * `layman -a yarik-overlay`
  # Add `app-crypt/truecrypt` in <b>/etc/portage/package.keywords</b>
- # Run `emerge -av truecrypt` and follow instructions^1^:
- * Download tar.gz source from http://www.truecrypt.org/downloads2.php. 
- Then put the file in <b>/usr/portage/distfiles/truecrypt-7.1a.tar.gz</b>
- * Run `emerge -av truecrypt`
+ # Run `emerge -av truecrypt`
 
 1. Instructions might differ from below.
 

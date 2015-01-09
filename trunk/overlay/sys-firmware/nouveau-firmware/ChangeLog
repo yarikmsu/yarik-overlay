@@ -1,7 +1,10 @@
 # ChangeLog for sys-firmware/nouveau-firmware
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
-  13 Aor 2014; Yarik <ygorbunov@gmail.com> +nouveau-firmware-325.15.ebuild,ChangeLog:
+	09 Jan 2015; Yarik <ygorbunov@gmail.com> +nouveau-firmware-340.32.ebuild:
+	Version bump
+
+  13 Apr 2014; Yarik <ygorbunov@gmail.com> +nouveau-firmware-325.15.ebuild,ChangeLog:
   New ebuild for #480832.
 

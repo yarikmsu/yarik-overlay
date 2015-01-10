@@ -2,6 +2,9 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+  09 Jan 2015; Yarik <ygorbunov@gmail.com> +nouveau-firmware-340.65.ebuild:
+  Version bump
+
 	09 Jan 2015; Yarik <ygorbunov@gmail.com> +nouveau-firmware-340.32.ebuild:
 	Version bump
 

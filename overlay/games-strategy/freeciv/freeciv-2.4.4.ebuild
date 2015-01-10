@@ -1,11 +1,9 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2015 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/games-strategy/freeciv/freeciv-2.4.2.ebuild,v 1.5 2014/06/04 05:03:42 mr_bones_ Exp $
-
-# FIXME: gtk3 support breaks ggz support
+# $Header: $
 
 EAPI=5
-inherit eutils gnome2-utils games-ggz games
+inherit eutils gnome2-utils games
 
 DESCRIPTION="multiplayer strategy game (Civilization Clone)"
 HOMEPAGE="http://www.freeciv.org/"
@@ -14,7 +12,7 @@ SRC_URI="mirror://sourceforge/freeciv/${P}.tar.bz2"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="auth aimodules dedicated ggz +gtk ipv6 mapimg modpack mysql nls postgres readline sdl +server +sound sqlite"
+IUSE="auth aimodules dedicated +gtk ipv6 mapimg modpack mysql nls postgres readline sdl +server +sound sqlite"
 
 RDEPEND="app-arch/bzip2
 	app-arch/xz-utils
@@ -23,15 +21,14 @@ RDEPEND="app-arch/bzip2
 	sys-libs/zlib
 	auth? (
 		mysql? ( virtual/mysql )
-		postgres? ( dev-db/postgresql-base )
+		postgres? ( dev-db/postgresql )
 		sqlite? ( dev-db/sqlite:3 )
 		!mysql? ( !postgres? ( !sqlite? ( virtual/mysql ) ) )
 	)
 	readline? ( sys-libs/readline:0 )
-	dedicated? ( aimodules? ( sys-devel/libtool:2 ) )
+	dedicated? ( aimodules? ( dev-libs/libltdl:0 ) )
 	!dedicated? (
 		media-libs/libpng:0
-		ggz? ( games-board/ggz-gtk-client )
 		gtk? ( x11-libs/gtk+:2 )
 		mapimg? ( media-gfx/imagemagick )
 		modpack? ( x11-libs/gtk+:2 )
@@ -65,7 +62,6 @@ pkg_setup() {
 }
 
 src_prepare() {
-#	epatch "${FILESDIR}"/${P}-as-needed.patch
 
 	# install the .desktop in /usr/share/applications
 	# install the icons in /usr/share/pixmaps
@@ -77,8 +73,8 @@ src_prepare() {
 		server/Makefile.in \
 		modinst/Makefile.in \
 		data/Makefile.in \
-		data/icons/Makefile.in \
-		|| die
+		data/icons/Makefile.in || die
+	sed -i -e 's/=SDL/=X-SDL/' bootstrap/freeciv-sdl.desktop.in || die
 }
 
 src_configure() {
@@ -110,19 +106,18 @@ src_configure() {
 			use sdl && myclient="${myclient} sdl"
 			use gtk && myclient="${myclient} gtk2"
 		fi
-		myopts="$(use_enable server) $(use_with ggz ggz-client)"
+		myopts="$(use_enable server) --without-ggz-client"
 	fi
 
 	# disabling shared libs will break aimodules USE flag
 	egamesconf \
+		--docdir="/usr/share/doc/${P}" \
 		--localedir=/usr/share/locale \
 		$(use_enable ipv6) \
 		$(use_enable mapimg) \
 		--enable-aimodules="$(usex aimodules "yes" "no")" \
 		--enable-shared \
 		--enable-fcdb="${mydatabase}" \
-		--with-ggzconfig=/usr/bin \
-		--enable-noregistry="${GGZ_MODDIR}" \
 		$(use_enable nls) \
 		$(use_with readline) \
 		$(use_enable sound sdl-mixer) \
@@ -157,9 +152,8 @@ src_install() {
 	fi
 	find "${D}" -name "freeciv-manual*" -delete
 
-	dodoc ChangeLog NEWS doc/{BUGS,CodingStyle,HACKING,HOWTOPLAY,README*,TODO}
 	rm -f "${D}$(games_get_libdir)"/*.a
-	prune_libtool_files --all
+	prune_libtool_files
 
 	prepgamesdirs
 }
@@ -171,11 +165,9 @@ pkg_preinst() {
 
 pkg_postinst() {
 	games_pkg_postinst
-	games-ggz_update_modules
 	gnome2_icon_cache_update
 }
 
 pkg_postrm() {
-	games-ggz_update_modules
 	gnome2_icon_cache_update
 }

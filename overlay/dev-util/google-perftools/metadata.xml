@@ -2,7 +2,8 @@
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
   <maintainer>
-   <email>ygorbunov@gmail.com</email>
+	<email>ygorbunov@gmail.com</email>
+	<name>Yaroslav Gorbunov</name>
   </maintainer>
   <use>
     <flag name="largepages">

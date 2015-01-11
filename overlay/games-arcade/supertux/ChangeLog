@@ -7,7 +7,7 @@
 
 *supertux-9999 (11 Jan 2015)
 
-  11 Jan 2015;  <y@gentoo.org> +supertux-9999.ebuild:
+  11 Jan 2015;  Yaroslav Gorbunov <ygorbunov@gmail.com> +supertux-9999.ebuild:
   supertux-9999: latest git version
 
   25 Aug 2014; Yarik <ygorbunov@gmail.com>

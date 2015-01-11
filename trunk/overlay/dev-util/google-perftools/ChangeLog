@@ -1,6 +1,13 @@
 # ChangeLog for dev-util/google-perftools
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*google-perftools-2.3 (11 Jan 2015)
+*google-perftools-2.4 (11 Jan 2015)
+
+  11 Jan 2015;  <y@gentoo.org> +google-perftools-2.3.ebuild,
+  +google-perftools-2.4.ebuild:
+  google-perftools 2.3 and 2.4
 
   19 May 2014; Yarik <ygorbunov@gmail.com>:
   New ebuild for dev-util/google-perftools - Fast, multi-threaded malloc() and nifty performance analysis tools.

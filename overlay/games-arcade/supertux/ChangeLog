@@ -1,7 +1,11 @@
-# ChangeLog for games-arcade/supertux 
-# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# ChangeLog for games-arcade/supertux
+# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*supertux-9999 (11 Jan 2015)
+
+  11 Jan 2015;  <y@gentoo.org> +supertux-9999.ebuild:
+  supertux-9999: latest git version
 
   25 Aug 2014; Yarik <ygorbunov@gmail.com>
   Initial import
-

@@ -4,6 +4,10 @@
 
   14 Feb 2015; Yaroslav Gorbunov <ygorbunov@gmail.com>
   freeciv-2.5.0_beta2.ebuild:
+  Build with USE="sdl" is fixed 2
+
+  14 Feb 2015; Yaroslav Gorbunov <ygorbunov@gmail.com>
+  freeciv-2.5.0_beta2.ebuild:
   Build with USE="sdl" is fixed
 
 *freeciv-2.5.0_beta2 (11 Jan 2015)

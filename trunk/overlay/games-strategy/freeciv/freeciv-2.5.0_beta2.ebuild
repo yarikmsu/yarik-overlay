@@ -40,6 +40,7 @@ RDEPEND="app-arch/bzip2
 			media-libs/libsdl[video]
 			media-libs/sdl-image[png]
 			media-libs/sdl-ttf
+			media-libs/sdl-gfx
 			media-libs/freetype:2
 		)
 		server? ( aimodules? ( sys-devel/libtool:2 ) )

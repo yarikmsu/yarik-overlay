@@ -1,20 +1,19 @@
 <?xml version="1.0" ?>
 <layman>
 	<overlay
-		type = "svn"
-		src  = "http://yarik-overlay.googlecode.com/svn/trunk/overlay"
+		type = "git"
+		src  = "https://github.com/yarikmsu/yarik-overlay.git"
 		contact = "ygorbunov@gmail.com"
 		status  = "unofficial"
 		name = "yarik-overlay">
 		<link>
-			http://code.google.com/p/yarik-overlay/
+			https://github.com/yarikmsu/yarik-overlay
 		</link>
 		<description>
 		  Yarik-overlay contains patches and ebuilds for some packages from official tree
 		  that still havn't commited and some new packages (OpenERP 6, TypeTrainer, etc).
-		  Most of patches added in Gentoo Bug tracking system.
 		  TrueCrypt was restored in the official tree, but overlay still contains
-		  truecrypt-6.3a and truecrypt-7.0a ebuilds de bene esse.
+		  enhanced truecrypt-7.1a ebuild de bene esse.
 		</description>
 	</overlay>
 </layman>

@@ -2,6 +2,12 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*freeciv-2.5.0 (28 Mar 2015)
+
+  28 Mar 2015; Yaroslav Gorbunov <ygorbunov@gmail.com> +freeciv-2.5.0.ebuild,
+  -freeciv-2.5.0_beta2.ebuild:
+  Version bump
+
   14 Feb 2015; Yaroslav Gorbunov <ygorbunov@gmail.com>
   freeciv-2.5.0_beta2.ebuild:
   Build with USE="sdl" is fixed 2

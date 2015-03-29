@@ -2,6 +2,12 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*nouveau-firmware-340.76 (29 Mar 2015)
+
+  29 Mar 2015; Yaroslav Gorbunov <ygorbunov@gmail.com>
+  +nouveau-firmware-340.76.ebuild:
+  Version bump
+
   09 Jan 2015; Yarik <ygorbunov@gmail.com> +nouveau-firmware-340.65.ebuild:
   Version bump
 
@@ -10,4 +16,3 @@
 
   13 Apr 2014; Yarik <ygorbunov@gmail.com> +nouveau-firmware-325.15.ebuild,ChangeLog:
   New ebuild for #480832.
-

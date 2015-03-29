@@ -1,5 +1,3 @@
-# yarik-overlay
-Some new packages plus uncommitted patches and ebuilds for the main Gentoo tree
 <h2>About overlay</h2>
 
 Yarik-overlay contains patches and ebuilds for some packages from official tree that still havn't commited and some new packages (OpenERP 6, TypeTrainer, nouveau-firmware). Most of patches added in [Gentoo Bug tracking system](http://bugs.gentoo.org/).

@@ -4,10 +4,9 @@ Yarik-overlay contains patches and ebuilds for some packages from official tree 
 
 **TrueCrypt** was restored in the official tree, but overlay still contains truecrypt-7.1a ebuild with fixed source url and removed fetch restriction.
 
----
-
 <h2>How to add overlay</h2>
 Yarik-overlay available in layman central overlays list.
+
 ```
 # emerge -av layman
 # layman -a yarik-overlay

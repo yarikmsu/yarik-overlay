@@ -2,6 +2,14 @@
 # Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*freeciv-2.4.5 (29 Aug 2015)
+*freeciv-2.5.1 (29 Aug 2015)
+
+  29 Aug 2015; Yaroslav Gorbunov <ygorbunov@gmail.com> +freeciv-2.4.5.ebuild,
+  +freeciv-2.5.1.ebuild, -freeciv-2.3.5.ebuild, -freeciv-2.4.4.ebuild,
+  freeciv-2.5.0.ebuild:
+  Version Bump
+
 *freeciv-2.5.0 (28 Mar 2015)
 
   28 Mar 2015; Yaroslav Gorbunov <ygorbunov@gmail.com> +freeciv-2.5.0.ebuild,

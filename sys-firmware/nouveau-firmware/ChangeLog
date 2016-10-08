@@ -1,6 +1,10 @@
 # ChangeLog for sys-firmware/nouveau-firmware
-# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+  08 Oct 2016; Yaroslav Gorbunov <ygorbunov@gmail.com> metadata.xml,
+  nouveau-firmware-340.96.ebuild:
+  Mask 340.96
 
 *nouveau-firmware-340.76 (29 Mar 2015)
 

@@ -2,6 +2,12 @@
 # Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
 
+*nouveau-firmware-340.98 (02 Nov 2016)
+
+  02 Nov 2016; Yaroslav Gorbunov <ygorbunov@gmail.com>
+  +nouveau-firmware-340.98.ebuild:
+  Version 340.98
+
   08 Oct 2016; Yaroslav Gorbunov <ygorbunov@gmail.com> metadata.xml,
   nouveau-firmware-340.96.ebuild:
   Mask 340.96

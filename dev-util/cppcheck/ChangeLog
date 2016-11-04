@@ -1,6 +1,12 @@
 # ChangeLog for dev-util/cppcheck
-# Copyright 1999-2015 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*cppcheck-1.76.1 (04 Nov 2016)
+
+  04 Nov 2016; Yaroslav Gorbunov <ygorbunov@gmail.com> +cppcheck-1.76.1.ebuild,
+  +files/cppcheck-1.76.1-tinyxml2.patch, metadata.xml:
+  dev-util/cppcheck: Version bump
 
 *cppcheck-1.70 (08 Sep 2015)
 

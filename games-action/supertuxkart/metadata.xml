@@ -5,4 +5,11 @@
   <email>ygorbunov@gmail.com</email>
   <name>Yaroslav Gorbunov</name>
 </maintainer>
+<use>
+	<flag name="fribidi">Support for right-to-left languages</flag>
+    <flag name="wiimote">Support for wiimote input devices</flag>
+</use>
+<upstream>
+	<remote-id type="sourceforge">supertuxkart</remote-id>
+</upstream>
 </pkgmetadata>

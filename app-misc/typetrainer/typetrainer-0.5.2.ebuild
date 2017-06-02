@@ -1,10 +1,10 @@
-# Copyright 1999-2011 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="3"
-PYTHON_DEPEND="2"
-inherit distutils
+EAPI="6"
+PYTHON_COMPAT=( python2_7 )
+inherit distutils-r1
 
 DESCRIPTION="Typing tutor trainer"
 HOMEPAGE="http://github.com/baverman/typetrainer"
@@ -20,11 +20,3 @@ CDEPEND="dev-python/pygtk"
 RDEPEND="${CDEPEND}"
 DEPEND="${CDEPEND}"
 
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
-}
-
-src_install() {
-	distutils_src_install
-}

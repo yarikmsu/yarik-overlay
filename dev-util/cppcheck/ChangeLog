@@ -1,6 +1,12 @@
 # ChangeLog for dev-util/cppcheck
-# Copyright 1999-2016 Gentoo Foundation; Distributed under the GPL v2
+# Copyright 1999-2018 Gentoo Foundation; Distributed under the GPL v2
 # $Header: $
+
+*cppcheck-1.84 (02 Sep 2018)
+
+  02 Sep 2018; Yaroslav Gorbunov <ygorbunov@gmail.com> +cppcheck-1.84.ebuild,
+  -cppcheck-1.68.ebuild, -cppcheck-1.70.ebuild, -cppcheck-1.76.1.ebuild:
+  Vesion bump
 
 *cppcheck-1.76.1 (04 Nov 2016)
 
